@@ -1,3 +1,7 @@
+<?php
+require('arithmetic.class.php');
+$config = include('config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,8 +23,6 @@
     </head>
     <body>
 <?php
-require('arithmetic.class.php');
-$config = include('config.php');
 $action = $_GET['action'];
 if($action == 'submit')
 {
