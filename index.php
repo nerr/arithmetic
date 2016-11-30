@@ -35,6 +35,7 @@ if($action == 'submit')
 <?php
 }
 elseif($action == 'settings' || $action == '')
+{
 ?>
 
 <!-- begin settings page  -->
