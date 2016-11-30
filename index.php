@@ -1,49 +1,66 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title><?php echo $config['title']; ?></title>
 
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+<?php
 require('arithmetic.class.php');
 $config = include('config.php');
+$action = $_GET['action'];
+if($action == 'submit')
+{
+?>
 
-var_dump($config);
+<!-- begin result page  -->
+<h2>测试结果</h2>
+<!-- end result page  -->
 
+<?php
+}
+elseif($action == 'settings' || $action == '')
+?>
 
-// $ruler = array(
-//     'range_a' => array('min' => 0, 'max' => 10),
-//     'range_b' => array('min' => 0, 'max' => 10),
-//     'max'     => 10
-// );
-//
-//
-// $a = new arithmetic();
-// $e = $a->makeExam($ruler, 60);
-// var_dump($e);
+<!-- begin settings page  -->
+<h2>设置</h2>
+<!-- end settings page  -->
+
+<?php
+}
+//-- exam part
+elseif($_GET['action'] == 'begin')
+{
+    $exam = new arithmetic();
+    $examLib = $exam->makeExam($_GET['ruler']);
+    $exam->beginTime = time();
+?>
+
+<!-- begin exam page  -->
+<h2>测试开始</h2>
+<!-- end exam page  -->
+
+<?php
+}
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?php echo $config['title']; ?></title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
 </html>

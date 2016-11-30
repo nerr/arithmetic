@@ -15,12 +15,12 @@
             //-- arithmetic type
         }
 
-        public function makeExam($ruler, $num = 60)
+        public function makeExam($ruler)
         {
             $this->exam = array();
             $i = 0;
 
-            while ($i < $num) {
+            while ($i < $ruler['amount']) {
                 $figure = array(
                     rand($ruler['range_a']['min'], $ruler['range_a']['max']),
                     rand($ruler['range_b']['min'], $ruler['range_b']['max'])

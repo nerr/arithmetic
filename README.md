@@ -1,1 +1,1 @@
-It's a artithmetic exercises application for my son.
+It's an artithmetic exercises application for my son.
