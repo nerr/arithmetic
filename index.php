@@ -39,13 +39,45 @@ elseif($action == 'settings' || $action == '')
 ?>
 
 <!-- begin settings page  -->
-<h2>设置</h2>
+    <div class="container">
+        <div class="page-header">
+            <h1>设置参数</h1>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">A数最大</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">A数最小</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">B数最大</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">B数最小</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">A与B的最大和（多少以内）</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">题目数量</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
 <!-- end settings page  -->
 
 <?php
 }
 //-- exam part
-elseif($_GET['action'] == 'begin')
+elseif($_GET['action'] == 'exam')
 {
     $exam = new arithmetic();
     $examLib = $exam->makeExam($_GET['ruler']);
